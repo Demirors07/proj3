@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-  pull-request:
+  pull_request:
     types:
       - closed
 
@@ -12,7 +12,7 @@ on:
 jobs:
   build-deploy:
     if: github.event_name == 'push' || github.event.pull_request.merged == true
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -36,5 +36,3 @@ jobs:
 
       - name: Push Docker Image
         run: docker push ${{secrets.DOCKERHUB_USERNAME}}/proj3:latest
-
-      - name: 
